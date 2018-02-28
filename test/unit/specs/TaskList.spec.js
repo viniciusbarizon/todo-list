@@ -3,6 +3,11 @@ import Vue from 'vue'
 import TaskList from '@/components/TaskList'
 import { Task } from '@/models/Task'
 
+var chai = require('chai')
+var expect = chai.expect // preference and tested with expect
+
+chai.use(require('chai-sorted'))
+
 function getMountedComponent (Component, propsData) {
   const Constructor = Vue.extend(Component)
   const vm = new Constructor({propsData}).$mount()
@@ -35,5 +40,9 @@ describe('TaskList.vue', () => {
 
   it('should render correct contents', () => {
     expect(vm.todoList.length).to.equal(3)
+  })
+
+  it('should sort the tasks', () => {
+    expect(vm.todoList).to.be.sortedBy('title')
   })
 })
