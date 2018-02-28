@@ -19,9 +19,9 @@ describe('InputTask.vue', () => {
     expect(task.title).to.equal('Buy Milk')
   })
 
-  it('should create the task not completed', () => {
+  it('should create the task completed', () => {
     let task = vm.createTask('Buy Milk')
-    expect(task.completed).to.be.false
+    expect(task.completed).to.be.true
   })
 
   it('should clean the input', () => {
