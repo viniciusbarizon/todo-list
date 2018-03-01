@@ -1,11 +1,13 @@
 <template>
     <ul class="todo-list">
-      <li v-for="todo in sortedTasks" class="todo" :key="todo.title">
-        <div class="view">
-          <input type="checkbox" class="toggle" @click="completeTask(todo)">
-          <label :class="{ 'todo-completed' : todo.completed }">{{ todo.title }}</label>
-        </div>
-      </li>
+      <transition-group name="fade">
+        <li v-for="(todo, index) in sortedTasks" class="todo" :key="index">
+          <div class="view">
+            <input type="checkbox" class="toggle" @click="completeTask(todo)">
+            <label :class="{ 'todo-completed' : todo.completed }">{{ todo.title }}</label>
+          </div>
+        </li>
+      </transition-group>
     </ul>
 </template>
 
@@ -35,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 .todo-list {
   margin: 0;
   padding: 0;
@@ -68,7 +70,7 @@ export default {
 .todo-list li .toggle {
   text-align: center;
   width: 40px;
-  /* auto, since non-WebKit browsers doesn't support input styling */
+  /* auto, since non-WebKit browsers does not support input styling */
   height: auto;
   position: absolute;
   top: 0;
@@ -127,7 +129,7 @@ export default {
 }
 /*
 Hack to remove background from Mobile Safari.
-Can't use it globally since it destroys checkboxes in Firefox
+Can not use it globally since it destroys checkboxes in Firefox
 */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .toggle-all,
@@ -146,5 +148,11 @@ Can't use it globally since it destroys checkboxes in Firefox
 }
 .todo-completed{
   text-decoration: line-through;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
 }
 </style>
