@@ -4,6 +4,7 @@
       <h1>Tasks</h1>
       <input-task @newTask="addTask"></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
+      <router-link class="zipcode" to="/zipcode">Check ZipCode</router-link>
     </header>
   </section>
 </template>
@@ -66,7 +67,7 @@ body {
 :focus {
   outline: 0;
 }
-.cep{
+.zipcode{
   text-decoration: none;
   font-size: 16px;
   display: block;

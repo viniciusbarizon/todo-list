@@ -2,7 +2,7 @@
     <section class="zipCodeChecker">
         <label>Zip Code</label>
         <input type="text" v-mask="'99999-999'" @blur="checkZipCode">
-        <router-link class="home" to="/">Ver tarefas</router-link>
+        <router-link class="home" to="/">List Tasks</router-link>
         <div v-if="hasAddress()">
           <p>Rua: {{address.logradouro}}</p>
           <p>Bairro: {{address.bairro}}</p>
