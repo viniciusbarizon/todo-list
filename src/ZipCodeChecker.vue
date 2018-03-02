@@ -1,7 +1,7 @@
 <template>
     <section class="zipCodeChecker">
         <label>Zip Code</label>
-        <input type="text" @blur="checkZipCode">
+        <input type="text" v-mask="'99999-999'" @blur="checkZipCode">
         <router-link class="home" to="/">Ver tarefas</router-link>
         <div v-if="hasAddress()">
           <p>Rua: {{address.logradouro}}</p>
@@ -13,11 +13,16 @@
 </template>
 
 <script>
+import AwesomeMask from 'awesome-mask'
+
 export default {
   data () {
     return {
       address: {}
     }
+  },
+  directives: {
+    'mask': AwesomeMask
   },
   methods: {
     checkZipCode ($event) {
