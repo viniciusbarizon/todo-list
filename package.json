@@ -17,6 +17,7 @@
     "chai-sorted": "^0.1.0",
     "npm": "^5.6.0",
     "vue": "^2.5.2",
+    "vue-resource": "^1.4.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

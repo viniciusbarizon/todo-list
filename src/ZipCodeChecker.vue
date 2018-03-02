@@ -1,7 +1,7 @@
 <template>
     <section class="zipCodeChecker">
         <label>Zip Code</label>
-        <input type="text">
+        <input type="text" @blur="checkZipCode">
         <router-link class="home" to="/">Ver tarefas</router-link>
     </section>
 </template>
@@ -10,6 +10,17 @@
 export default {
   data () {
     return {
+    }
+  },
+  methods: {
+    checkZipCode ($event) {
+      let value = $event.target.value
+      this.$http.get('http://api.postmon.com.br/v1/cep/' + value).then((res) => {
+        this.address = res.body
+        console.log(res)
+      }, (res) => {
+        console.log(res)
+      })
     }
   }
 }
