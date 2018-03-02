@@ -2,6 +2,7 @@
     <section class="zipCodeChecker">
         <label>Zip Code</label>
         <input type="text">
+        <router-link class="home" to="/">Ver tarefas</router-link>
     </section>
 </template>
 
