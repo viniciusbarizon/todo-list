@@ -33,7 +33,7 @@ export default {
       this.$el.querySelector('input').value = ''
     },
     broadcast (task) {
-      this.$emit('newTask', task)
+      this.$events.emit('newTask', task)
     }
   }
 }

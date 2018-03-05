@@ -14,6 +14,12 @@ import routes from './routes'
 // ========================
 import VueResource from 'vue-resource'
 
+// ========================
+// Events
+// ========================
+import VueEvents from './plugins/events'
+Vue.use(VueEvents)
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)

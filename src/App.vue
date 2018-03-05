@@ -2,7 +2,7 @@
   <section class="todoapp">
     <header class="header">
       <h1>Tasks</h1>
-      <input-task @newTask="addTask"></input-task>
+      <input-task></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
       <router-link class="zipcode" to="/zipcode">Check ZipCode</router-link>
     </header>
@@ -22,6 +22,9 @@ export default {
     return {
       tasks: []
     }
+  },
+  mounted () {
+    this.$events.on('newTask', eventData => this.addTask(eventData))
   },
   methods: {
     addTask (task) {
