@@ -3,27 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 
-// ========================
-// Router
-// ========================
 import VueRouter from 'vue-router'
 import routes from './routes'
 
-// ========================
-// Resource
-// ========================
 import VueResource from 'vue-resource'
-
-// ========================
-// Events
-// ========================
 import VueEvents from './plugins/events'
-Vue.use(VueEvents)
-
-Vue.config.productionTip = false
+import store from './store/index'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(VueEvents)
+
+Vue.config.productionTip = false
 
 const router = new VueRouter({
   mode: 'history',
@@ -33,6 +24,7 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: `
