@@ -5,6 +5,7 @@
       <input-task></input-task>
       <task-list v-bind:todo-list="tasks"></task-list>
       <router-link class="zipcode" to="/zipcode">Check ZipCode</router-link>
+      <footer-todo></footer-todo>
     </header>
   </section>
 </template>
@@ -12,11 +13,14 @@
 <script>
 import InputTask from './components/InputTask'
 import TaskList from './components/TaskList'
+import FooterTodo from './components/FooterTodo'
+
 export default {
   name: 'App',
   components: {
     InputTask,
-    TaskList
+    TaskList,
+    FooterTodo
   },
   data () {
     return {
